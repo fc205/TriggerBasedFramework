@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IVR Mockup: VayaVaya</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+function startCall() {
+  document.getElementById("myStatus").innerHTML = "Call active";
+  document.getElementById("callInfo").innerHTML = "Customer#123";
+  document.getElementById("btn-success").setAttribute("disabled", "true");
+  document.getElementById("btn-warning").removeAttribute("disabled");
+  document.getElementById("btn-danger").removeAttribute("disabled");
+}
+function putOnHold() {
+  if(document.getElementById("myStatus").innerHTML == "Call active") {
+    document.getElementById("myStatus").innerHTML = "On hold";
+    document.getElementById("btn-warning").innerHTML = "Resume call";
+  }
+  else {
+    document.getElementById("myStatus").innerHTML = "Call active";
+    document.getElementById("btn-warning").innerHTML = "Put call on hold";
+  }
+}
+function hangUp() {
+  document.getElementById("myStatus").innerHTML = "Available";
+  document.getElementById("callInfo").innerHTML = "&nbsp;";
+  document.getElementById("btn-danger").setAttribute("disabled", "true");
+  document.getElementById("btn-warning").setAttribute("disabled", "true");
+  document.getElementById("btn-warning").innerHTML = "Put call on hold";
+  document.getElementById("btn-success").removeAttribute("disabled");
+}
+</script>
+
+<div class="container">
+  <h2>IVR Mockup: VayaVaya</h2>
+  <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAACVCAMAAABmfEh9AAAAY1BMVEX///8AAADU1NQaGhr09PTJycnPz8/GxsaTk5Pj4+P5+fnMzMzb29uhoaGenp5hYWE3Nzd7e3uzs7MuLi4REREKCgpJSUnq6uq6urpqamqDg4M9PT1CQkKJiYlxcXElJSVSUlLwxHPRAAACsElEQVR4nO2bCXKDMAxFIzAhEFYDYQuQ+5+yk6Rp0w6LxSIzrd4J3niRxbc5HBiGYRiGYRiGYfThCpF7hpcL4epWeeHafpnAk6T07T2I5VWdwTtZXeWanbwY+og9jU6iMXulAMxG6JIyrgNOd66GHik54nRH6pA6TUgBnOilgkkpgIBayleQAvBppQwlKQDSJZ+P7b53rpQFtVGUAmjopBxlKQCHzKpEWJVUUkaKsEqpFnyFkAKoiKxQUgA0UjbSyiaxUi8LT0iKgxsirUKKllm5rr8gqe9GNi3yg4yiNhyRUgBHAivsFqTZhAXaqiCw2udYndFWZwKrfe5BJ0JaRRQt1j5r+6E/WhgmppBCb0KLxGqf/RVyCmkm8HCwUFZEE7jTbxxU20DRMHzSKku1dFLq9Z2krn+hekRTHMxvTCd9d8jTPhUtDRHkdC2lqp8/mEpGyVPRJ0Uy4pRQdOu95MN1q9V5l2Ndep0uZIffAHb8O2NLY5oUZpy8aKPuqZZ2UVzovof7Jj8XUsrivB8jhvlHuM7Rsh97sLCPnvYnDSI3ZBXWSZe+EpEsNZPk0vqWo+k23JPNWOJQx9TvLVynKKOhRwNvdDfpUJl5J0wqE54I4itHRpgbrztZF3ibjphdYYO+T0p/Ky8h63lKD9Jqi09DN+hv8NTJ2rVXmPC7hU4PwlXfGsml4/RFvFp1Pa7mdCdYxUtgbymnuK2wvApseVLgtHC4XGyMrUa5qL+3Vtl5PZgLPhhxsSyKbHayhb81xTAzMBXYa28c13lLfu2K8JtZ7xzEzPZAmWzOYKm93FvCnFd/t82tbngpMRbkrUOCn0JvqwL6TYfvawyFb5iFmPhjmq3Yiq3Yiq3Yiq3Yiq3Yiq3Yiq22tsI/zcaDT9aEsT3a/vNlGIZhGIZhGOav8gFm+i0OghE2ZQAAAABJRU5ErkJggg==" /></div>
+  <h4>John Smith (Agent)</h4>
+  <br />
+  <div class="row">
+    <div class="col-sm-4"><b>Status:</b></div>
+    <div class="col-sm-4" id="myStatus">Available</div>
+    <div class="col-sm-4" id="callInfo">&nbsp;</div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-sm-4"><button onclick="startCall()" type="button" class="btn btn-success center-block btn-block" id="btn-success">Start Call</button>&nbsp;</div>
+    <div class="col-sm-4"><button onclick="putOnHold()" type="button" class="btn btn-warning center-block btn-block" id="btn-warning" disabled>Put call on hold&nbsp;</button>&nbsp;</div>
+    <div class="col-sm-4"><button onclick="hangUp()" type="button" class="btn btn-danger center-block btn-block" id="btn-danger" disabled>Hang up&nbsp;</button>&nbsp;</div>
+  </div>
+</div>
+
+</body>
+</html>
+
