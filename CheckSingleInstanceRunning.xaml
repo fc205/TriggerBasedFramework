@@ -1,10 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CheckSingleInstanceRunning" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPathTeam.SharedContext.Activities;assembly=UiPathTeam.SharedContext.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="WhoAmI" Type="OutArgument(x:String)" />
     <x:Property Name="isAlreadyRunning" Type="OutArgument(x:Boolean)" />
-    <x:Property Name="jobId" Type="OutArgument(x:String)" />
+    <x:Property Name="sCurrentJobId" Type="OutArgument(x:String)" />
+    <x:Property Name="sContextName" Type="InOutArgument(x:String)" />
+    <x:Property Name="sCurrentProcessName" Type="OutArgument(x:String)" />
+    <x:Property Name="iContextProcessId" Type="InOutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>987,1398</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>987,1646</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -27,10 +29,11 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPathTeam.SharedContext.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="12">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="24">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
@@ -43,9 +46,12 @@
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharedContext.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CheckSingleInstanceRunning" sap:VirtualizedContainerService.HintSize="967,1338" sap2010:WorkflowViewState.IdRef="Sequence_35">
+  <Sequence DisplayName="CheckSingleInstanceRunning" sap:VirtualizedContainerService.HintSize="967,1586" sap2010:WorkflowViewState.IdRef="Sequence_35">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="aStatus" />
     </Sequence.Variables>
@@ -54,7 +60,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <usa:GetProcessInfoActivity ProcessVersion="{x:Null}" WorkflowFilePath="{x:Null}" DisplayName="Get Information about the current process" sap:VirtualizedContainerService.HintSize="925,22" sap2010:WorkflowViewState.IdRef="GetProcessInfoActivity_1" JobId="[jobId]" ProcessName="[WhoAmI]" />
+    <usa:GetProcessInfoActivity ProcessVersion="{x:Null}" WorkflowFilePath="{x:Null}" DisplayName="Get Information about the current process" sap:VirtualizedContainerService.HintSize="925,22" sap2010:WorkflowViewState.IdRef="GetProcessInfoActivity_2" JobId="[sCurrentJobId]" ProcessName="[sCurrentProcessName]" />
+    <If Condition="[string.IsNullOrEmpty(sContextName)]" sap:VirtualizedContainerService.HintSize="925,208" sap2010:WorkflowViewState.IdRef="If_8">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[sContextName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[sCurrentProcessName]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
     <Assign sap:VirtualizedContainerService.HintSize="925,60" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[isAlreadyRunning]</OutArgument>
@@ -63,7 +81,7 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <usa:SharedContextScopeActivity FilePath="{x:Null}" Folder="{x:Null}" Clear="True" DisplayName="Shared Context Scope" sap:VirtualizedContainerService.HintSize="925,1084" sap2010:WorkflowViewState.IdRef="SharedContextScopeActivity_8" Lock="True" Name="[WhoAmI]" Retries="5" Type="File">
+    <usa:SharedContextScopeActivity FilePath="{x:Null}" Folder="{x:Null}" Clear="True" DisplayName="Shared Context Scope" sap:VirtualizedContainerService.HintSize="925,1084" sap2010:WorkflowViewState.IdRef="SharedContextScopeActivity_8" Lock="True" Name="[sContextName]" Retries="5" Type="File">
       <usa:SharedContextScopeActivity.Body>
         <ActivityAction x:TypeArguments="usa:ContextClient">
           <ActivityAction.Argument>
@@ -130,14 +148,15 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <Sequence sap:VirtualizedContainerService.HintSize="242,238" sap2010:WorkflowViewState.IdRef="Sequence_34">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <usa:SharedContextVariableSetActivity ContextClient="{x:Null}" DisplayName="Set Variable in Context" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextVariableSetActivity_1" Name="Status" Value="Running" />
-                  <usa:SharedContextVariableSetActivity ContextClient="{x:Null}" DisplayName="Set Variable in Context" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextVariableSetActivity_2" Name="UltimateParent" Value="[WhoAmI]" />
+                  <usa:SharedContextVariableSetActivity ContextClient="{x:Null}" DisplayName="Set Variable in Context" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextVariableSetActivity_2" Name="UltimateParent" Value="[sContextName]" />
+                  <usa:SharedContextMessageReceiveActivity ContextClient="{x:Null}" MessageContent="{x:Null}" OriginProcess="{x:Null}" QueueEmpty="{x:Null}" TimeSent="{x:Null}" DisplayName="Gets the oldest Message in the queue for this Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextMessageReceiveActivity_1" />
                 </Sequence>
               </If.Else>
             </If>
