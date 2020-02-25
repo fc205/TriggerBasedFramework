@@ -5,6 +5,7 @@
     <x:Property Name="sContextName" Type="InOutArgument(x:String)" />
     <x:Property Name="sCurrentProcessName" Type="OutArgument(x:String)" />
     <x:Property Name="iContextProcessId" Type="InOutArgument(x:String)" />
+    <x:Property Name="sContextFile" Type="OutArgument(x:String)" />
   </x:Members>
   <sap:VirtualizedContainerService.HintSize>987,1646</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
@@ -81,7 +82,7 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <usa:SharedContextScopeActivity FilePath="{x:Null}" Folder="{x:Null}" Clear="True" DisplayName="Shared Context Scope" sap:VirtualizedContainerService.HintSize="925,1084" sap2010:WorkflowViewState.IdRef="SharedContextScopeActivity_8" Lock="True" Name="[sContextName]" Retries="5" Type="File">
+    <usa:SharedContextScopeActivity Folder="{x:Null}" Clear="True" DisplayName="Shared Context Scope" FilePath="[sContextFile]" sap:VirtualizedContainerService.HintSize="925,1084" sap2010:WorkflowViewState.IdRef="SharedContextScopeActivity_8" Lock="True" Name="[sContextName]" Retries="5" Type="File">
       <usa:SharedContextScopeActivity.Body>
         <ActivityAction x:TypeArguments="usa:ContextClient">
           <ActivityAction.Argument>
