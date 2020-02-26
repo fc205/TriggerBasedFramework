@@ -138,7 +138,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,282" sap2010:WorkflowViewState.IdRef="Sequence_25">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -257,7 +257,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Running Parallel Process &quot; + row(&quot;ActionArgument&quot;).ToString()]" />
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Running Parallel Process &quot; + row(&quot;ActionArgument&quot;).ToString() + &quot; sContextName:&quot; + sContextName + &quot; sCurrentProcessName:&quot; + sCurrentProcessName]" />
                             <ui:BeginProcess DisplayName="Run Parallel Process" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="BeginProcess_3" ProcessName="[row(&quot;ActionArgument&quot;).ToString()]">
                               <ui:BeginProcess.Arguments>
                                 <InArgument x:TypeArguments="x:String" x:Key="ContextName">[sContextName]</InArgument>
@@ -297,6 +297,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Kill process: &quot; + row(&quot;ActionArgument&quot;).ToString()]" />
                         <usa:SharedContextScopeActivity FilePath="{x:Null}" Folder="{x:Null}" Clear="False" DisplayName="Shared Context Scope" sap:VirtualizedContainerService.HintSize="434,200" sap2010:WorkflowViewState.IdRef="SharedContextScopeActivity_1" Lock="True" Name="[sContextName]" Retries="5" Type="File">
                           <usa:SharedContextScopeActivity.Body>
                             <ActivityAction x:TypeArguments="usa:ContextClient">
