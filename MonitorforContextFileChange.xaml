@@ -89,37 +89,44 @@
             <Flowchart.StartNode>
               <x:Reference>__ReferenceID9</x:Reference>
             </Flowchart.StartNode>
-            <FlowDecision x:Name="__ReferenceID8" Condition="[isQueueEmpty]" DisplayName="isMsgQueueEmpty" sap:VirtualizedContainerService.HintSize="106,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+            <FlowDecision x:Name="__ReferenceID7" Condition="[isQueueEmpty]" DisplayName="isMsgQueueEmpty" sap:VirtualizedContainerService.HintSize="106,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <av:Point x:Key="ShapeLocation">247,199.5</av:Point>
                   <av:Size x:Key="ShapeSize">106,87</av:Size>
-                  <av:PointCollection x:Key="TrueConnector">247,243 217,243 217,242.52 200,242.52</av:PointCollection>
+                  <av:PointCollection x:Key="TrueConnector">247,243 217,243 217,242.04 200,242.04</av:PointCollection>
                   <av:PointCollection x:Key="FalseConnector">353,243 312.5,243 312.5,316.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
-                <FlowStep x:Name="__ReferenceID0">
+                <FlowStep x:Name="__ReferenceID8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">0,217.02</av:Point>
-                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      <av:Point x:Key="ShapeLocation">0,209.04</av:Point>
+                      <av:Size x:Key="ShapeSize">200,66</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;File changed but nothing to do for &quot; + sCurrentProcessName]">
+                  <Sequence DisplayName="No more messages to dequeue" sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_43">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </ui:LogMessage>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;File changed but nothing to do for &quot; + sCurrentProcessName]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                  </Sequence>
                 </FlowStep>
               </FlowDecision.True>
               <FlowDecision.False>
-                <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID1" DisplayName="Flow Switch" Expression="[anAction]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
+                <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID0" DisplayName="Flow Switch" Expression="[anAction]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
                   <FlowSwitch.Default>
-                    <FlowStep x:Name="__ReferenceID2">
+                    <FlowStep x:Name="__ReferenceID1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">0,297</av:Point>
@@ -148,7 +155,7 @@
                       <av:PointCollection x:Key="RemoveTriggerListenerByOwnerConnector">365,360 395,360 395,262.5 400,262.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <FlowStep x:Key="ForceStop" x:Name="__ReferenceID3">
+                  <FlowStep x:Key="ForceStop" x:Name="__ReferenceID2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">0,397</av:Point>
@@ -172,7 +179,7 @@
                       </Assign>
                     </Sequence>
                   </FlowStep>
-                  <FlowStep x:Key="AddTriggerListenerById" x:Name="__ReferenceID5">
+                  <FlowStep x:Key="AddTriggerListenerById" x:Name="__ReferenceID4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">400,397</av:Point>
@@ -186,7 +193,7 @@
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </FlowStep>
-                  <FlowStep x:Key="RemoveTriggerListenerByOwner" x:Name="__ReferenceID4">
+                  <FlowStep x:Key="RemoveTriggerListenerByOwner" x:Name="__ReferenceID3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">400,237</av:Point>
@@ -200,7 +207,7 @@
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </FlowStep>
-                  <FlowStep x:Key="AddTriggerListenerByOwner" x:Name="__ReferenceID6">
+                  <FlowStep x:Key="AddTriggerListenerByOwner" x:Name="__ReferenceID5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">240,484.5</av:Point>
@@ -214,7 +221,7 @@
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </FlowStep>
-                  <FlowStep x:Key="RemoveTriggerListenerById" x:Name="__ReferenceID7">
+                  <FlowStep x:Key="RemoveTriggerListenerById" x:Name="__ReferenceID6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">10,554.5</av:Point>
@@ -238,7 +245,6 @@
             <x:Reference>__ReferenceID4</x:Reference>
             <x:Reference>__ReferenceID5</x:Reference>
             <x:Reference>__ReferenceID6</x:Reference>
-            <x:Reference>__ReferenceID7</x:Reference>
             <FlowStep x:Name="__ReferenceID9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -247,7 +253,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,163 300,199.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,485" sap2010:WorkflowViewState.IdRef="Sequence_39">
+              <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_39">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -286,9 +292,10 @@
                 </ui:LogMessage>
               </Sequence>
               <FlowStep.Next>
-                <x:Reference>__ReferenceID8</x:Reference>
+                <x:Reference>__ReferenceID7</x:Reference>
               </FlowStep.Next>
             </FlowStep>
+            <x:Reference>__ReferenceID8</x:Reference>
           </Flowchart>
         </ActivityAction>
       </ui:FileChangeTriggerV2.Body>
