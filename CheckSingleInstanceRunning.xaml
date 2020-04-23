@@ -155,7 +155,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <usa:SharedContextVariableSetActivity ContextClient="{x:Null}" DisplayName="Set Variable in Context" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextVariableSetActivity_1" Name="Status" Value="Running" />
+                  <usa:SharedContextVariableSetActivity ContextClient="{x:Null}" DisplayName="Set Variable in Context" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextVariableSetActivity_1" Name="[sCurrentProcessName]" Value="Running" />
                   <usa:SharedContextVariableSetActivity ContextClient="{x:Null}" DisplayName="Set Variable in Context" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SharedContextVariableSetActivity_2" Name="UltimateParent" Value="[sContextName]" />
                 </Sequence>
               </If.Else>
