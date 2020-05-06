@@ -1,9 +1,9 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="CheckSingleInstanceRunning" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPathTeam.SharedContext.Activities;assembly=UiPathTeam.SharedContext.Activities" xmlns:usc="clr-namespace:UiPathTeam.SharedContext.Context;assembly=UiPathTeam.SharedContext" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="isAlreadyRunning" Type="OutArgument(x:Boolean)" />
-    <x:Property Name="sCurrentJobId" Type="OutArgument(x:String)" />
-    <x:Property Name="sContextName" Type="InOutArgument(x:String)" />
-    <x:Property Name="sCurrentProcessName" Type="OutArgument(x:String)" />
+    <x:Property Name="sCurrentJobId" Type="InArgument(x:String)" />
+    <x:Property Name="sContextName" Type="InArgument(x:String)" />
+    <x:Property Name="sCurrentProcessName" Type="InArgument(x:String)" />
     <x:Property Name="iContextProcessId" Type="InOutArgument(x:String)" />
     <x:Property Name="sContextFile" Type="OutArgument(x:String)" />
   </x:Members>
@@ -83,7 +83,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <usa:GetVariableActivity ContextClient="{x:Null}" DisplayName="Get Variable from Context" sap:VirtualizedContainerService.HintSize="983,84" sap2010:WorkflowViewState.IdRef="GetVariableActivity_1" RaiseException="True" VariableName="Status" VariableValue="[aStatus]" />
+            <usa:GetVariableActivity ContextClient="{x:Null}" DisplayName="Get Variable from Context" sap:VirtualizedContainerService.HintSize="983,84" sap2010:WorkflowViewState.IdRef="GetVariableActivity_1" RaiseException="False" VariableName="Status" VariableValue="[aStatus]" />
             <If Condition="[aStatus = &quot;Running&quot;]" sap:VirtualizedContainerService.HintSize="983,841" sap2010:WorkflowViewState.IdRef="If_10">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="562,694" sap2010:WorkflowViewState.IdRef="Sequence_37">

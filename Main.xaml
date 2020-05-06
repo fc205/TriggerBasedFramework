@@ -110,7 +110,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">220,223 220,256.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Preliminary Initialisation" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_35">
+              <Sequence DisplayName="Preliminary Initialisation" sap:VirtualizedContainerService.HintSize="380,348" sap2010:WorkflowViewState.IdRef="Sequence_35">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -142,9 +142,9 @@
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckSingleInstanceRunning workflow" sap:VirtualizedContainerService.HintSize="338,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="CheckSingleInstanceRunning.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <OutArgument x:TypeArguments="x:Boolean" x:Key="isAlreadyRunning">[isAlreadyRunning]</OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="sCurrentJobId">[sCurrentJobId]</OutArgument>
-                    <InOutArgument x:TypeArguments="x:String" x:Key="sContextName">[sContextName]</InOutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="sCurrentProcessName">[sCurrentProcessName]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="sCurrentJobId">[sCurrentJobId]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="sContextName">[sContextName]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="sCurrentProcessName">[sCurrentProcessName]</InArgument>
                     <InOutArgument x:TypeArguments="x:String" x:Key="iContextProcessId" />
                     <OutArgument x:TypeArguments="x:String" x:Key="sContextFile">[sContextFile]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
