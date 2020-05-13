@@ -64,7 +64,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1086,91" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;[TBF] Start monitoring File Changes&quot;]" />
-    <usa:NamedPipeTriggerV2 ContinueMonitoring="{x:Null}" ContinueOnError="{x:Null}" ContextName="[sContextName]" DisplayName="Named Pipe Trigger Standalone" sap:VirtualizedContainerService.HintSize="1086,1425" sap2010:WorkflowViewState.IdRef="NamedPipeTriggerV2_1" Retries="5">
+    <usa:NamedPipeTriggerV2 ContextName="[sContextName]" ContinueMonitoring="[Not shouldExit]" ContinueOnError="True" DisplayName="Named Pipe Trigger Standalone" sap:VirtualizedContainerService.HintSize="1086,1425" sap2010:WorkflowViewState.IdRef="NamedPipeTriggerV2_1" Retries="5">
       <usa:NamedPipeTriggerV2.Body>
         <ActivityAction x:TypeArguments="usc:ContextContent">
           <ActivityAction.Argument>

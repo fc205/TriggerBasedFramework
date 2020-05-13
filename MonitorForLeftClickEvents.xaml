@@ -7,7 +7,7 @@
     <x:Property Name="sContextName" Type="InArgument(x:String)" />
     <x:Property Name="sCurrentProcessName" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>860,2744</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>860,2704</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -148,7 +148,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                         </ActivityAction.Argument>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,282" sap2010:WorkflowViewState.IdRef="Sequence_30">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -214,11 +214,11 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                             <av:Size x:Key="ShapeSize">60,75</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">270,40 67.5,40 67.5,80</av:PointCollection>
+                            <av:PointCollection x:Key="ConnectorLocation">270,40 240,40 240,39.52 230,39.52</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <Flowchart.StartNode>
-                          <x:Reference>__ReferenceID3</x:Reference>
+                          <x:Reference>__ReferenceID4</x:Reference>
                         </Flowchart.StartNode>
                         <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID3" DisplayName="Flow Switch" Expression="[row(&quot;Action&quot;).ToString()]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
                           <FlowSwitch.Default>
@@ -301,7 +301,7 @@
                                 <av:Size x:Key="ShapeSize">200,66</av:Size>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="STOP_PROCESS" sap:VirtualizedContainerService.HintSize="476,629" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                            <Sequence DisplayName="STOP_PROCESS" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -331,6 +331,25 @@
                         <x:Reference>__ReferenceID0</x:Reference>
                         <x:Reference>__ReferenceID1</x:Reference>
                         <x:Reference>__ReferenceID2</x:Reference>
+                        <FlowStep x:Name="__ReferenceID4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">30,14.02</av:Point>
+                              <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">130,65.02 67.5,65.02 67.5,80</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;[TBF] Click detected!! ID &quot; + row(&quot;id&quot;).ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <FlowStep.Next>
+                            <x:Reference>__ReferenceID3</x:Reference>
+                          </FlowStep.Next>
+                        </FlowStep>
                       </Flowchart>
                     </ActivityAction>
                   </ui:ForEachRow.Body>
